@@ -1,0 +1,5 @@
+booking_id,listing_id,booking_date,nights_booked,booking_amount,cleaning_fee,service_fee,booking_status,created_at,updated_at
+100,10,2024-01-05,2,100,20,10,confirmed,2024-01-01 00:00:00,2024-01-01 00:00:00
+101,10,2024-01-10,3,100,20,15,cancelled,2024-01-02 00:00:00,2024-01-02 00:00:00
+102,20,2024-02-01,1,220,25,12,confirmed,2024-01-03 00:00:00,2024-01-03 00:00:00
+103,10,2024-02-10,4,100,20,20,confirmed,2024-01-04 00:00:00,2024-01-04 00:00:00

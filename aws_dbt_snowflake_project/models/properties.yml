@@ -1,5 +1,48 @@
+version: 2
 models:
-  - name: bronze
-    config:
-      +materialized: table
-      +schema: bronze
+  - name: silver_bookings
+    columns:
+      - name: booking_id
+        data_tests: [unique, not_null]
+      - name: updated_at
+        data_tests: [not_null]
+      - name: listing_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('silver_listings')
+                field: listing_id
+      - name: booking_status
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['confirmed', 'cancelled', 'pending']
+  - name: silver_hosts
+    columns:
+      - name: host_id
+        data_tests: [unique, not_null]
+      - name: updated_at
+        data_tests: [not_null]
+  - name: silver_listings
+    columns:
+      - name: listing_id
+        data_tests: [unique, not_null]
+      - name: updated_at
+        data_tests: [not_null]
+      - name: host_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('silver_hosts')
+                field: host_id
+  - name: obt
+    columns:
+      - name: booking_id
+        data_tests: [unique, not_null]
+  - name: fact
+    columns:
+      - name: booking_id
+        data_tests: [unique, not_null]

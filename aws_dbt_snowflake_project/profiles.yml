@@ -1,0 +1,8 @@
+aws_dbt_snowflake_project:
+  target: local
+  outputs:
+    local:
+      type: duckdb
+      path: local.duckdb
+      schema: main
+      threads: 1

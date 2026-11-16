@@ -1,10 +1,7 @@
 [project]
 name = "aws-dbt-snowflake"
-version = "0.1.0"
-description = "Add your description here"
+version = "0.2.0"
+description = "Reproducible synthetic booking analytics with dbt"
 readme = "README.md"
-requires-python = ">=3.14"
-dependencies = [
-    "dbt-core>=1.11.7",
-    "dbt-snowflake>=1.11.3",
-]
+requires-python = ">=3.10,<3.14"
+dependencies = ["dbt-core>=1.11,<1.12", "dbt-duckdb>=1.11,<1.12", "dbt-snowflake>=1.11,<1.12"]
