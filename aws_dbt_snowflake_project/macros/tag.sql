@@ -1,5 +1,6 @@
 {% macro tag(col) -%}
-(CASE WHEN CAST({{ col }} AS INT) < 100 THEN 'low'
-      WHEN CAST({{ col }} AS INT) <= 200 THEN 'medium'
-      ELSE 'high' END)
+CASE WHEN {{ col }} IS NULL THEN 'unknown'
+     WHEN {{ col }} < 100 THEN 'low'
+     WHEN {{ col }} <= 200 THEN 'medium'
+     ELSE 'high' END
 {%- endmacro %}

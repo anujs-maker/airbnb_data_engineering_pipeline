@@ -1,9 +1,7 @@
 version: 2
-
 sources:
   - name: staging
-    database: AIRBNB
-    schema: staging
+    schema: "{{ target.schema }}_staging"
     tables:
       - name: listings
       - name: bookings

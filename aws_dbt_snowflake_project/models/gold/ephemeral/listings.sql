@@ -1,22 +1,2 @@
-{{
-  config(
-    materialized = 'ephemeral'
-    )
-}}
-
-with listings as 
-( select 
-    listing_id,
-    property_type,
-    room_type,
-    city, 
-    country,
-    price_per_night_tag, 
-    listings_created_at
-    from {{ ref('obt') }}
-
-)
-
-
-select * from listings
-
+{{ config(materialized='ephemeral') }}
+select listing_id, property_type, room_type, city, country, price_per_night_tag, created_at as listings_created_at from {{ ref('silver_listings') }}

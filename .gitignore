@@ -8,3 +8,8 @@ wheels/
 
 # Virtual environments
 .venv
+
+local.duckdb*
+logs/
+target/
+.dbt/
